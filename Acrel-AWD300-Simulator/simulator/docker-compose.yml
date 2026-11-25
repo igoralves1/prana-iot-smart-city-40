@@ -1,0 +1,32 @@
+services:
+  kurc-building-central:
+    build: .
+    container_name: kurc-building-central
+    environment:
+      IOT_ENDPOINT: a13bm01k8tg2b8-ats.iot.us-east-1.amazonaws.com
+      TOPIC: Kurc-Building-Central
+      DEVICE_NAME: Kurc-Building-Central
+      DEVICE_ID: "20201998111433"
+      CERT_FILE: /certs/ADW300-Certs-certificate.pem.crt
+      KEY_FILE: /certs/ADW300-Certs-private.pem.key
+      CA_FILE: /certs/AmazonRootCA1.pem
+      PUBLISH_INTERVAL: "5"
+    volumes:
+      - ./certificates:/certs:ro
+    restart: unless-stopped
+
+  kurc-building-secondary-1:
+    build: .
+    container_name: kurc-building-secondary-1
+    environment:
+      IOT_ENDPOINT: a13bm01k8tg2b8-ats.iot.us-east-1.amazonaws.com
+      TOPIC: Kurc-Building-Secondary-1
+      DEVICE_NAME: Kurc-Building-Secondary-1
+      DEVICE_ID: "20201998111434"
+      CERT_FILE: /certs/Web-Certs-certificate.pem.crt
+      KEY_FILE: /certs/Web-Certs-private.pem.key
+      CA_FILE: /certs/AmazonRootCA1.pem
+      PUBLISH_INTERVAL: "5"
+    volumes:
+      - ./certificates:/certs:ro
+    restart: unless-stopped
