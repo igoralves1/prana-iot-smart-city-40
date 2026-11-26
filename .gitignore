@@ -1,7 +1,7 @@
 # === Certificados e chaves (NUNCA versionar) ===
-# Chaves privadas X.509 e certificados do AWS IoT Core
-certificates/
-**/certificates/
+# Ignora os ARQUIVOS de certificado/chave por extensao, mas mantem a PASTA
+# certificates/ versionada (com o README) para o docker-compose montar e para
+# documentar quais arquivos colocar.
 *.key
 *.pem
 *.pem.key
@@ -10,6 +10,9 @@ certificates/
 *.der
 *.bin
 *private*
+certificates/*
+!certificates/README.md
+!**/certificates/README.md
 
 # === Sistema operacional ===
 .DS_Store

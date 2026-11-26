@@ -1,0 +1,18 @@
+# Arranque principal do sistema — rode da RAIZ do repositorio, em qualquer SO:
+#   docker compose up -d --build        → http://localhost:8000
+#   WEB_PORT=8099 docker compose up -d   (se a porta 8000 estiver ocupada)
+services:
+  app:
+    build: ./app/server            # contexto de build = so o codigo (sem segredos)
+    image: prana/adw300-gateway:latest
+    container_name: adw300-app
+    ports:
+      - "${WEB_PORT:-8000}:8000"   # interface web (host:container)
+    environment:
+      - CONFIG_FILE=/config.yml
+    volumes:
+      - ./app/config.yml:/config.yml:ro
+      - ./app/certificates:/certificates:ro   # vazio no clone; app roda local sem AWS
+    extra_hosts:
+      - "host.docker.internal:host-gateway"    # para a ponte serial (modo medidor real)
+    restart: unless-stopped

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ADW300 configuration software EN T1.2</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net20</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs">
+      <HintPath>ACREL-DOCS/MQTT files 4G/ADW300-configuration-EN-T1-2/Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+      <HintPath>../../../../../../../opt/homebrew/Cellar/dotnet/11.0.100/libexec/shared/Microsoft.NETCore.App/11.0.0/System.ServiceProcess.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>../../../../../../../opt/homebrew/Cellar/dotnet/11.0.100/libexec/shared/Microsoft.NETCore.App/11.0.0/System.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
